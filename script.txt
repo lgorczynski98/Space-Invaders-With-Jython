@@ -1,0 +1,6 @@
+add-field com.diamond.iain.javagame.Game public static java.net.Socket socket;
+add-after-method com.diamond.iain.javagame.Game main(java.lang.String[] asdf) pythonHandler.txt
+remove-field com.diamond.iain.javagame.entities.Player x
+remove-field com.diamond.iain.javagame.entities.Player y
+add-field com.diamond.iain.javagame.entities.Player public int x = 0;
+add-field com.diamond.iain.javagame.entities.Player public int y = 0;

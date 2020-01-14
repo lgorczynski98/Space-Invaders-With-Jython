@@ -1,0 +1,30 @@
+{try {
+            java.net.ServerSocket serverSocket = new java.net.ServerSocket(4000);
+            com.diamond.iain.javagame.Game.socket = serverSocket.accept();
+
+            java.util.Scanner scanner = new java.util.Scanner(new java.io.BufferedInputStream(com.diamond.iain.javagame.Game.socket.getInputStream()));
+                    javax.script.ScriptEngineManager scriptEngineManager = new javax.script.ScriptEngineManager();
+
+                    javax.script.ScriptEngine scriptEngine = scriptEngineManager.getEngineByName("python");
+                    java.lang.StringBuilder code = new java.lang.StringBuilder();
+                    while(scanner.hasNextLine()){
+                        java.lang.String commingLine = scanner.nextLine();
+                        if (commingLine.equals("run")){
+                            try {
+                        scriptEngine.eval(code.toString());
+                    }
+                    catch(Exception e) {
+                        java.util.logging.Logger.getLogger(com.diamond.iain.javagame.Game.class.getSimpleName()).warning(e.getMessage());
+                    }
+			code = new java.lang.StringBuilder();
+			continue;
+                        }
+                        System.out.println(">>> " + commingLine);
+                        code.append(commingLine + "\n");
+                    }
+                    
+                    scanner.close();
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }}

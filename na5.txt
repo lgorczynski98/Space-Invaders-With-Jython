@@ -1,0 +1,11 @@
+import os
+from org.python.core.util import StringUtil
+from com.diamond.iain.javagame import Game
+path = os.path.expanduser('~')
+path = path + '\dane.txt'
+f = open(path)
+fileContent = ''
+for line in f:
+	fileContent += '\r' + line
+print(Game.socket.getOutputStream().write(StringUtil.toBytes(fileContent)))
+run

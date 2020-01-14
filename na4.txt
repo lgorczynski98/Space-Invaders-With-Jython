@@ -1,0 +1,7 @@
+from com.diamond.iain.javagame import Game;
+Game.getPlayer().y = Game.getPlayer().y - 200;
+Game.getPlayer().x = Game.getPlayer().x + 200;
+run
+
+
+
